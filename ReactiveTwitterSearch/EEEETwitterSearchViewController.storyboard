@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WAR-yU-zKP">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <scenes>
+        <!--Twitter Search-->
+        <scene sceneID="5l5-gL-3fY">
+            <objects>
+                <viewController title="Twitter Search" id="WAR-yU-zKP" customClass="EEEETwitterSearchViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1bl-Cv-fSe"/>
+                        <viewControllerLayoutGuide type="bottom" id="URp-IE-qch"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FZ3-Pd-Ndq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="twq-bH-ABx" userLabel="searchBar">
+                                <rect key="frame" x="8" y="28" width="584" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="WAR-yU-zKP" id="Hzx-Eh-gXM"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="twq-bH-ABx" firstAttribute="top" secondItem="1bl-Cv-fSe" secondAttribute="bottom" constant="8" id="73s-DG-T31"/>
+                            <constraint firstItem="twq-bH-ABx" firstAttribute="leading" secondItem="FZ3-Pd-Ndq" secondAttribute="leading" constant="8" id="Nlk-8M-Gcf"/>
+                            <constraint firstAttribute="trailing" secondItem="twq-bH-ABx" secondAttribute="trailing" constant="8" id="wf7-oV-j4Z"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="searchBar" destination="twq-bH-ABx" id="qnP-Lg-ec8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s35-nA-TlE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="643" y="534"/>
+        </scene>
+    </scenes>
+</document>
