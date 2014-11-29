@@ -12,10 +12,12 @@
 #import "RACEXTScope.h"
 
 #import "EEEETwitterSearchViewModel.h"
-#import "EEEETwitterSearch.h"
 
 #import "EEEETwitterSearchResultViewController.h"
 #import "EEEETwitterSearchResultViewModel.h"
+#import "EEEETwitterIconImageView.h"
+
+@import Accounts;
 
 @interface EEEETwitterSearchViewController ()
 <
@@ -23,14 +25,15 @@ UISearchBarDelegate
 >
 
 @property (nonatomic) EEEETwitterSearchViewModel *viewModel;
-@property (nonatomic) IBOutlet UISearchBar *searchBar;
+@property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
+
+- (void)search;
 @end
 
 @implementation EEEETwitterSearchViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     
     // ************
     // View Model
@@ -56,11 +59,52 @@ UISearchBarDelegate
     
     // self.searchBar.userInteractionEnabled == !self.viewModel.searching
     RAC(self.searchBar, userInteractionEnabled) = [RACObserve(self.viewModel, searching) not];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Private
+- (void)search {
+    
+    @weakify(self);
+    
+    // search
+    [[[self.viewModel search]
+      deliverOn:[RACScheduler mainThreadScheduler]]
+      subscribeNext:^(NSDictionary *responseData){
+         
+         // 検索完了
+         @strongify(self);
+         
+         EEEETwitterSearchResultViewModel *viewModel;
+         viewModel = [[EEEETwitterSearchResultViewModel alloc] initWithSearchResultData:responseData];
+         
+         NSString *className = NSStringFromClass([EEEETwitterSearchResultViewController class]);
+         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:className bundle:nil];
+         
+         EEEETwitterSearchResultViewController *vc;
+         vc              = [storyboard instantiateInitialViewController];
+         vc.title        = self.viewModel.searchText;
+         vc.viewModel    = viewModel;
+         
+         [self.navigationController pushViewController:vc animated:YES];
+         
+      } error:^(NSError *err){
+         // アクティブアカウント無い or レスポンスエラー
+         if (err.code == EEEETwitterSearchViewModelSearchErrorNoActiveAccount) {
+             // アクティブアカウント無い
+             
+         }else if (err.code == EEEETwitterSearchViewModelSearchErrorInvalidResponse) {
+             // レスポンスエラー
+             
+         }
+         NSLog(@"error:%@", err);
+      }];
 }
 
 #pragma mark - UISearchBarDelegate
@@ -69,51 +113,55 @@ UISearchBarDelegate
     [searchBar resignFirstResponder];
     
     @weakify(self);
-    [[self.viewModel requestTwitterAccount]
-      subscribeError:^(NSError *err){
-          // 承認得られず or アカウント無い
-          NSLog(@"%@", err);
-          
-          if (err.code == EEEETwitterSearchErrorAccessDenied) {
-              // 承認得られず
+    
+    if (!self.viewModel.activeAccount) {
+        [[self.viewModel twitterAccountRequested]
+          subscribeNext:^(NSArray *accounts){
               
-          }else if (err.code == EEEETwitterSearchErrorNoTwitterAccounts) {
-              // アカウント無い
+              UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Twitter Accounts"
+                                                                                       message:@"検索に使用するアカウントを選んでください"
+                                                                                preferredStyle:UIAlertControllerStyleActionSheet];
+              for (ACAccount *account in accounts) {
+                  [alertController addAction:[UIAlertAction actionWithTitle:account.username
+                                                                      style:UIAlertActionStyleDefault
+                                                                    handler:^(UIAlertAction *action){
+                                                                        @strongify(self);
+                                                                        [[self.viewModel activateActiveAccount:account]
+                                                                          subscribeCompleted:^{
+                                                                              NSLog(@"activated account:%@", account);
+                                                                              [self search];
+                                                                          }];
+                                                                    }]];
+              }
               
-          }
-          
-      } completed:^{
-          // 承認通ってアカウント取得できた
-          
-          @strongify(self);
-          
-          [[[self.viewModel search]
-            deliverOn:[RACScheduler mainThreadScheduler]]
-            subscribeNext:^(NSDictionary *responseData){
-                // 検索完了
-                
-                @strongify(self);
-                
-                EEEETwitterSearchResultViewModel *viewModel;
-                viewModel = [[EEEETwitterSearchResultViewModel alloc] initWithSearchResultData:responseData];
-                
-                NSString *className = NSStringFromClass([EEEETwitterSearchResultViewController class]);
-                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:className bundle:nil];
-                
-                EEEETwitterSearchResultViewController *vc;
-                vc              = [storyboard instantiateInitialViewController];
-                vc.title        = self.viewModel.searchText;
-                vc.viewModel    = viewModel;
-                
-                [self.navigationController pushViewController:vc animated:YES];
-                
-            } error:^(NSError *err){
-                // レスポンスエラー
-                NSLog(@"error:%@", err);
-            }];
-          
-          
-      }];
+              [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel"
+                                                                  style:UIAlertActionStyleCancel
+                                                                handler:^(UIAlertAction *action){
+                                                                    
+                                                                }]];
+              
+              [self presentViewController:alertController
+                                 animated:YES
+                               completion:nil];
+              
+          } error:^(NSError *err){
+              
+              // 承認得られず or アカウント無い
+              NSLog(@"%@", err);
+              
+              if (err.code == EEEETwitterSearchViewModelSearchErrorAccessDenied) {
+                  // 承認得られず
+                  
+              }else if (err.code == EEEETwitterSearchViewModelSearchErrorNoTwitterAccounts) {
+                  // アカウント無い
+                  
+              }
+              
+          }];
+    
+    } else {
+        [self search];
+    }
     
 }
 

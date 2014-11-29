@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class EEEETwitterIconBorderView;
 
 @interface EEEETwitterSearchResultTableViewCell : UITableViewCell
+@property (nonatomic, weak) IBOutlet EEEETwitterIconBorderView *border;
 @property (nonatomic, weak) IBOutlet UIImageView *icon;
 @property (nonatomic, weak) IBOutlet UILabel *screenName;
 @property (nonatomic, weak) IBOutlet UILabel *name;

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6291771E596056852117DC33 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F99343E2D3D6D73971950EA /* libPods.a */; };
+		843530A61A2971870087DE03 /* EEEETwitterIconImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 843530A51A2971870087DE03 /* EEEETwitterIconImageView.m */; };
 		8448CB5E1A22C1760049AA7D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8448CB5D1A22C1760049AA7D /* main.m */; };
 		8448CB611A22C1760049AA7D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8448CB601A22C1760049AA7D /* AppDelegate.m */; };
 		8448CB691A22C1760049AA7D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8448CB681A22C1760049AA7D /* Images.xcassets */; };
@@ -16,7 +17,6 @@
 		8448CB8C1A22C40A0049AA7D /* EEEETwitterSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8448CB8B1A22C40A0049AA7D /* EEEETwitterSearchViewController.m */; };
 		8448CB901A22C6950049AA7D /* EEEETwitterSearchResultViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8448CB8F1A22C6950049AA7D /* EEEETwitterSearchResultViewController.storyboard */; };
 		8448CB931A22C74F0049AA7D /* EEEETwitterSearchViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8448CB921A22C74F0049AA7D /* EEEETwitterSearchViewModel.m */; };
-		8448CB971A22C9AB0049AA7D /* EEEETwitterSearchServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 8448CB961A22C9AB0049AA7D /* EEEETwitterSearchServices.m */; };
 		8448CB9D1A22D10F0049AA7D /* EEEETwitterSearchResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8448CB9C1A22D10F0049AA7D /* EEEETwitterSearchResultTableViewCell.m */; };
 		8448CBA01A22D4290049AA7D /* EEEETweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8448CB9F1A22D4290049AA7D /* EEEETweet.m */; };
 		8458DA481A22F56D0015508A /* EEEETwitterSearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8458DA471A22F56D0015508A /* EEEETwitterSearchViewController.storyboard */; };
@@ -38,6 +38,8 @@
 		52C54E288D32E638D16FAAF5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		6F99343E2D3D6D73971950EA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		82308395F4489167695BC551 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		843530A41A2971870087DE03 /* EEEETwitterIconImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEEETwitterIconImageView.h; sourceTree = "<group>"; };
+		843530A51A2971870087DE03 /* EEEETwitterIconImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEEETwitterIconImageView.m; sourceTree = "<group>"; };
 		8448CB581A22C1760049AA7D /* ReactiveTwitterSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactiveTwitterSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8448CB5C1A22C1760049AA7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8448CB5D1A22C1760049AA7D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -53,9 +55,6 @@
 		8448CB8F1A22C6950049AA7D /* EEEETwitterSearchResultViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EEEETwitterSearchResultViewController.storyboard; sourceTree = "<group>"; };
 		8448CB911A22C74F0049AA7D /* EEEETwitterSearchViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEEETwitterSearchViewModel.h; sourceTree = "<group>"; };
 		8448CB921A22C74F0049AA7D /* EEEETwitterSearchViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEEETwitterSearchViewModel.m; sourceTree = "<group>"; };
-		8448CB941A22C7F70049AA7D /* EEEETwitterSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEEETwitterSearch.h; sourceTree = "<group>"; };
-		8448CB951A22C9AB0049AA7D /* EEEETwitterSearchServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEEETwitterSearchServices.h; sourceTree = "<group>"; };
-		8448CB961A22C9AB0049AA7D /* EEEETwitterSearchServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEEETwitterSearchServices.m; sourceTree = "<group>"; };
 		8448CB9B1A22D10F0049AA7D /* EEEETwitterSearchResultTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEEETwitterSearchResultTableViewCell.h; sourceTree = "<group>"; };
 		8448CB9C1A22D10F0049AA7D /* EEEETwitterSearchResultTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEEETwitterSearchResultTableViewCell.m; sourceTree = "<group>"; };
 		8448CB9E1A22D4290049AA7D /* EEEETweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEEETweet.h; sourceTree = "<group>"; };
@@ -94,6 +93,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		843530A71A2971900087DE03 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
 		8448CB4F1A22C1760049AA7D = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +125,7 @@
 			children = (
 				8448CB5F1A22C1760049AA7D /* AppDelegate.h */,
 				8448CB601A22C1760049AA7D /* AppDelegate.m */,
+				843530A71A2971900087DE03 /* Common */,
 				8448CB811A22C2820049AA7D /* TwitterSearch */,
 				8458DA431A22F4E00015508A /* TwitterSearchResult */,
 				8448CB681A22C1760049AA7D /* Images.xcassets */,
@@ -157,7 +164,6 @@
 		8448CB811A22C2820049AA7D /* TwitterSearch */ = {
 			isa = PBXGroup;
 			children = (
-				8448CB841A22C29C0049AA7D /* Model */,
 				8448CB831A22C2920049AA7D /* ViewModel */,
 				8448CB821A22C28D0049AA7D /* View */,
 			);
@@ -183,16 +189,6 @@
 			name = ViewModel;
 			sourceTree = "<group>";
 		};
-		8448CB841A22C29C0049AA7D /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				8448CB941A22C7F70049AA7D /* EEEETwitterSearch.h */,
-				8448CB951A22C9AB0049AA7D /* EEEETwitterSearchServices.h */,
-				8448CB961A22C9AB0049AA7D /* EEEETwitterSearchServices.m */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
 		8458DA431A22F4E00015508A /* TwitterSearchResult */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +207,8 @@
 				8448CB8F1A22C6950049AA7D /* EEEETwitterSearchResultViewController.storyboard */,
 				8448CB9B1A22D10F0049AA7D /* EEEETwitterSearchResultTableViewCell.h */,
 				8448CB9C1A22D10F0049AA7D /* EEEETwitterSearchResultTableViewCell.m */,
+				843530A41A2971870087DE03 /* EEEETwitterIconImageView.h */,
+				843530A51A2971870087DE03 /* EEEETwitterIconImageView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -378,12 +376,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8448CB971A22C9AB0049AA7D /* EEEETwitterSearchServices.m in Sources */,
 				8448CB931A22C74F0049AA7D /* EEEETwitterSearchViewModel.m in Sources */,
 				8448CBA01A22D4290049AA7D /* EEEETweet.m in Sources */,
 				8448CB8C1A22C40A0049AA7D /* EEEETwitterSearchViewController.m in Sources */,
 				8448CB611A22C1760049AA7D /* AppDelegate.m in Sources */,
 				8458DA4E1A22F6580015508A /* EEEETwitterSearchResultViewModel.m in Sources */,
+				843530A61A2971870087DE03 /* EEEETwitterIconImageView.m in Sources */,
 				8458DA4B1A22F63D0015508A /* EEEETwitterSearchResultViewController.m in Sources */,
 				8448CB9D1A22D10F0049AA7D /* EEEETwitterSearchResultTableViewCell.m in Sources */,
 				8448CB5E1A22C1760049AA7D /* main.m in Sources */,

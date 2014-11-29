@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
-        <!--Twitter Search-->
+        <!--Search-->
         <scene sceneID="5l5-gL-3fY">
             <objects>
-                <viewController title="Twitter Search" id="WAR-yU-zKP" customClass="EEEETwitterSearchViewController" sceneMemberID="viewController">
+                <viewController title="Search" id="WAR-yU-zKP" customClass="EEEETwitterSearchViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1bl-Cv-fSe"/>
                         <viewControllerLayoutGuide type="bottom" id="URp-IE-qch"/>

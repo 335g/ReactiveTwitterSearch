@@ -10,6 +10,7 @@
 #import "EEEETwitterSearchResultViewModel.h"
 
 #import "EEEETwitterSearchResultTableViewCell.h"
+#import "EEEETwitterIconImageView.h"
 #import "EEEETweet.h"
 
 #import <ReactiveCocoa/ReactiveCocoa.h>
@@ -51,7 +52,7 @@ UITableViewDataSource
     EEEETweet *tweet = self.viewModel.tweets[indexPath.row];
     
     cell.icon.image = nil;
-    cell.screenName.text = tweet.screenName;
+    cell.screenName.text = [NSString stringWithFormat:@"@%@", tweet.screenName];
     cell.name.text = tweet.name;
     cell.tweet.text = tweet.text;
     

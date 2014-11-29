@@ -7,8 +7,16 @@
 //
 
 #import "EEEETwitterSearchResultTableViewCell.h"
+#import "EEEETwitterIconImageView.h"
+
+@import QuartzCore;
 
 @implementation EEEETwitterSearchResultTableViewCell
+
+- (void)awakeFromNib {
+    self.icon.layer.cornerRadius = self.border.cornerR;
+    self.icon.clipsToBounds = YES;
+}
 
 - (void)layoutSubviews {
     
